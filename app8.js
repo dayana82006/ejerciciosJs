@@ -3,28 +3,15 @@ agregarInvitado(nombre): Agrega un nombre al Set de invitados.
 eliminarInvitado(nombre): Elimina un nombre del Set.
 mostrarInvitados(): Muestra todos los nombres en el Set.*/
 //se definie la variable que ba almacenar 
-let invitados = new Set();
 
-function agregarInvitado(nombre){
-    invitados.add(nombre);
+//TO DO validacion si un nombre ya esta registrado
 
-}
-
-function eliminarInvitado(nombre){
-
-}
-
-function mostrarInvitados(nombre){
-
-}
-
-
-// Crear un conjunto de invitados
+//conjunto de invitados
 let invitados = new Set();
 
 // Función para agregar un invitado
 function agregarInvitado() {
-    let nombre = prompt("Ingresa el nombre del invitado a agregar:");
+    let nombre = prompt("Ingresa el nombre del invitado a agregar: ");
     if (nombre) {
         invitados.add(nombre);
         alert(`${nombre} ha sido agregado a la lista de invitados.`);
@@ -34,7 +21,7 @@ function agregarInvitado() {
 // Función para eliminar un invitado
 function eliminarInvitado() {
     let nombre = prompt("Ingresa el nombre del invitado a eliminar:");
-    if (nombre) {
+    if (nombre){
         if (invitados.has(nombre)) {
             invitados.delete(nombre);
             alert(`${nombre} ha sido eliminado de la lista de invitados.`);
@@ -57,11 +44,11 @@ function mostrarInvitados() {
     }
 }
 
-// Función principal para gestionar la lista de invitados
-function gestionarListaDeInvitados() {
-    let continuar = true;
+//funcion principal
+function manejarInvitados() {
+    let isActive = true;
 
-    while (continuar) {
+    while (isActive) {
         let opcion = prompt("Elige una opción:\n1. Agregar invitado\n2. Eliminar invitado\n3. Mostrar lista de invitados\n4. Salir");
 
         switch (opcion) {
@@ -69,13 +56,14 @@ function gestionarListaDeInvitados() {
                 agregarInvitado();
                 break;
             case "2":
+                mostrarInvitados();
                 eliminarInvitado();
                 break;
             case "3":
                 mostrarInvitados();
                 break;
             case "4":
-                continuar = false;
+                isActive = false;
                 alert("¡Adiós!");
                 break;
             default:
@@ -84,5 +72,5 @@ function gestionarListaDeInvitados() {
     }
 }
 
-// Llamamos a la función principal para empezar el programa
-gestionarListaDeInvitados();
+// funcion principal para ejecutar el problema
+ manejarInvitados();
